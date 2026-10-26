@@ -1,73 +1,116 @@
 <!doctype html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu Portfólio</title>
-    
-    <!-- Linkando o arquivo de estilos CSS -->
+
+    <!-- Link para o arquivo de estilos CSS -->
     <link rel="stylesheet" href="css/style.css" />
-</head>
+    <!-- Carrega a fonte Geist Mono do Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
-    <!-- Cabeçalho contendo o menu de navegação -->
+  <body>
+    <!-- Cabeçalho com o menu de navegação centralizado no topo -->
     <header class="cabecalho-topo">
-        <nav class="menu-navegacao">
-            <ul>
-                <!-- Links internos para rolar a página suavemente -->
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+      <nav class="menu-navegacao">
+        <ul>
+          <!-- Links internos para rolar a página suavemente -->
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Conteúdo principal do site -->
     <main>
-        <!-- Seção Home / Apresentação -->
-        <section id="home" class="secao-apresentacao">
-            
-            <!-- Coluna da Esquerda: Sua foto e dados pessoais -->
-            <div class="coluna-perfil">
-                <div class="container-foto">
-                    <img src="img/testeFotominha.jpg" alt="Minha Foto de Perfil" class="imagem-perfil">
-                </div>
-                <span class="texto-saudacao">Oi! Eu sou o</span>
-                <h1 class="nome-perfil">Rafael Yuddi :)</h1>
-                <p class="subtitulo-perfil">desenvolvedor 💻</p>
-            </div>
+      <!-- Seção Principal / Home -->
+      <section id="home" class="secao-apresentacao">
+        <!-- Coluna da Esquerda: Foto, Nome e Subtítulo -->
+        <div class="coluna-perfil">
+          <div class="container-foto">
+            <img
+              src="img/testeFotominha.jpg"
+              alt="Minha Foto de Perfil"
+              class="imagem-perfil"
+            />
+          </div>
+          <span class="texto-saudacao">Oi! Eu sou o</span>
+          <h1 class="nome-perfil">Rafael Yuddi :)</h1>
+          <p class="subtitulo-perfil">Desenvolvedor 💻</p>
+        </div>
 
-            <!-- Coluna da Direita: Textos de resumo (com fonte de texto comum) -->
-            <div class="coluna-texto">
-                <p class="paragrafo-destaque">
-                    Já trabalhei com desenvolvimento web, criando experiências digitais e modernizando aplicações.
-                </p>
+        <!-- Coluna da Direita: Textos descritivos e link do Instagram -->
+        <div class="coluna-texto">
+          <p class="paragrafo-destaque">
+            Prazer! Me chamo Rafael Yuddi, Tenho 17 Anos. Atualmente estudando Programação, e esse é meu Portifólio pessoal.
+            Nele, conto mais sobre mim, Falo sobre minhas capacidades e Mostro conhecimentos que tenho.
+          </p>
 
-                <p class="paragrafo-comum">
-                    Hoje, estou em busca de novos desafios e projetos inovadores, documentando essa jornada profissional.
-                </p>
+          <p class="paragrafo-comum">
+            Hoje, Buscando a primeira oportunidade na área de Tecnologia da Informação para aplicar conhecimentos em Desenvolvimento de Software.
+          </p>
 
-                <p class="links-sociais">
-                    E também no <a href="https://instagram.com" target="_blank">Instagram</a>
-                </p>
-            </div>
+          <p class="links-sociais">
+            Minhas Redes:
+            <a
+              href="www.instagram.com/leafarxz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 align-middle font-medium text-truffle-trouble underline underline-offset-4 decoration-truffle-trouble/40 hover:decoration-truffle-trouble transition-colors"
+            >
+              <img
+                alt
+                loading="lazy"
+                width="16"
+                height="16"
+                decoding="async"
+                data-nimg="1"
+                style="color: transparent"
+                src="/instagram.svg"
+              />Instagram</a
+            >
 
-        </section>
+            e
+            <a
+              href="https://www.linkedin.com/in/lucas-yudi-ganeko-1ba3b3178"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 align-middle font-medium text-truffle-trouble underline underline-offset-4 decoration-truffle-trouble/40 hover:decoration-truffle-trouble transition-colors"
+            >
+              <img
+                alt=""
+                loading="lazy"
+                width="16"
+                height="16"
+                decoding="async"
+                data-nimg="1"
+                style="color: transparent"
+                src="/linkedin.svg"
+              />LinkedIn</a
+            >
+          </p>
+        </div>
+      </section>
 
-        <!-- Seções futuras apenas para testar a rolagem da página -->
-        <section id="sobre" class="secao-futura">
-            <h2>Sobre</h2>
-            <p>Em breve, mais detalhes sobre mim.</p>
-        </section>
+      <!-- Seções futuras para testar a rolagem da página -->
+      <section id="sobre" class="secao-futura">
+        <h2>Sobre</h2>
+        <p>Em breve, mais detalhes sobre mim.</p>
+      </section>
 
-        <section id="contato" class="secao-futura">
-            <h2>Contato</h2>
-            <p>Em breve, as formas de contato.</p>
-        </section>
+      <section id="contato" class="secao-futura">
+        <h2>Contato</h2>
+        <p>Em breve, as formas de contato.</p>
+      </section>
     </main>
 
     <!-- Script JavaScript no final -->
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
