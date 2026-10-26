@@ -1,91 +1,117 @@
+/* Propriedade para a página rolar suavemente ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
+}
+
 /* 1. Registra a fonte Neuropol X no seu CSS */
 @font-face {
     font-family: 'NeuropolX';
     src: url('../Neuropol X Rg.otf') format('opentype');
 }
 
-/* 1. Tira as bolinhas da lista e coloca os itens um do lado do outro (esquerda para a direita) */
-nav ul {
-    list-style: none;  /* Remove as bolinhas pretas */
-    display: flex;     /* Alinha os itens na horizontal */
-    gap: 17px;         /* Cria um espaço proporcional entre 'home', 'sobre' e 'contato' */
+/* Configuração geral da página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'NeuropolX', sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+}
+
+/* Cabeçalho e Menu centralizado no topo */
+.cabecalho-topo {
+    display: flex;
+    justify-content: center; /* Centraliza o menu horizontalmente no topo */
+    padding: 25px 0;
+}
+
+.menu-navegacao ul {
+    list-style: none;  /* Remove as bolinhas da lista */
+    display: flex;     /* Coloca os itens um ao lado do outro */
+    gap: 25px;         /* Espaço entre os links */
     padding: 0;
     margin: 0;
 }
 
-/* 2. Aplica a fonte com o estilo e o peso exato da referência */
-nav ul li a {
-    font-family: 'NeuropolX', sans-serif; /* Fonte limpa e técnica */
-    font-weight: bold;                  /* Deixa o traço encorpado */
-    font-size: 13px;                    /* Ajusta o tamanho proporcional */
-    color: #111827;                     /* Cor escura e marcante */
-    text-decoration: none;              /* Tira o sublinhado padrão do link */
-    
+.menu-navegacao ul li a {
+    font-family: 'NeuropolX', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #111827;
+    text-decoration: none; /* Tira o sublinhado */
 }
 
-/* Layout Principal em 2 Colunas (Flexbox) */
-.hero-section {
+.menu-navegacao ul li a:hover {
+    color: #4b5563; /* Cor cinza suave ao passar o rato por cima */
+}
+
+/* Layout Principal em 2 Colunas (Foto + Texto lado a lado) */
+.secao-apresentacao {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 60px;
+    align-items: center; /* ALINHAMENTO PERFEITO: Deixa a foto e o texto na mesma altura vertical */
+    gap: 50px;           /* Espaço entre a coluna da foto e a coluna do texto */
     padding: 60px 20px;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Coluna da Esquerda */
-.hero-profile {
+/* Coluna da Esquerda (Foto e Nome) */
+.coluna-perfil {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.profile-img {
-    width: 260px;
-    height: 320px;
+.imagem-perfil {
+    width: 280px;
+    height: 340px;
     object-fit: cover;
-    border-radius: 24px; /* Cantos bem arredondados como na foto */
+    border-radius: 24px; /* Cantos arredondados */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.greeting {
+.texto-saudacao {
     margin-top: 15px;
     font-size: 14px;
     color: #6b7280;
 }
 
-.profile-name {
-    font-size: 28px;
+.nome-perfil {
+    font-size: 26px;
     margin: 5px 0;
     color: #111827;
 }
 
-.profile-subtitle {
+.subtitulo-perfil {
     font-size: 14px;
     color: #6b7280;
+    margin: 0;
 }
 
-/* Coluna da Direita */
-.hero-content {
-    max-width: 500px;
-    font-family: monospace, sans-serif; /* Estilo de fonte técnica do modelo */
+/* Coluna da Direita (Textos de resumo) */
+.coluna-texto {
+    max-width: 450px;
+    font-family: monospace, sans-serif; /* Mantém o estilo técnico da fonte do texto */
+    font-size: 14px;
+    line-height: 1.6; /* Melhora o espaçamento entre as linhas do texto */
 }
 
-/* Container do Vídeo do YouTube com cantos arredondados */
-.video-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin: 20px 0;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.paragrafo-destaque, .paragrafo-comum {
+    margin-bottom: 20px;
+    color: #374151;
 }
 
-.video-container iframe {
-    width: 100%;
-    height: 100%;
+.links-sociais a {
+    color: #2563eb;
+    text-decoration: underline;
 }
 
-
+/* Estilo temporário para as outras seções da página única */
+.secao-futura {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 20px;
+}
