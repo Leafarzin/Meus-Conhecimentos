@@ -1,153 +1,176 @@
-/* Faz com que a página deslize suavemente ao clicar nos links do menu */
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+/* Faz a página deslizar suavemente (em vez de pular) ao clicar nos links do menu */
 html {
     scroll-behavior: smooth;
 }
 
-/* Registra a fonte geométrica personalizada (Para o menu e os Titulos do Portifólio) */
+/* Registra a fonte Neuropol X para podermos usá-la com o nome 'NeuropolX'.
+   Ela é usada no menu e nos títulos das seções */
 @font-face {
-    font-family: 'NeuropolX';
-    src: url('../Neuropol X Rg.otf') format('opentype');
+    font-family: 'NeuropolX';                           /* nome que usaremos no CSS para chamar essa fonte */
+    src: url('../Neuropol X Rg.otf') format('opentype'); /* caminho do arquivo da fonte (../ = sobe uma pasta, saindo de css/) */
 }
 
-/* Configuração geral da página inteira */
+/* Estilo base da página inteira. Tudo que não tiver regra própria herda daqui */
 body {
-    margin: 0;                    /* Remove a margem padrão das bordas da tela */
-    padding: 0;                   /* Remove o espaçamento interno padrão */
-    background-color: #ffffff;    /* Define o fundo da página como branco puro */
-    color: #111827;               /* Define a cor padrão dos textos */
-    font-family: 'Geist Mono', monospace; /* Fonte do portfólio inspirador, com a monospace comum como reserva */
+    margin: 0;                                /* remove a margem padrão que o navegador coloca nas bordas */
+    padding: 0;                               /* remove o espaço interno padrão */
+    background-color: #ffffff;                /* fundo branco */
+    color: #111827;                           /* cor padrão dos textos (preto suave) */
+    font-family: 'Geist Mono', monospace;     /* fonte padrão do site (a do Yudi); se não carregar, usa a monospace comum */
 }
 
-/* --- ESTILOS DO MENU --- */
 
-/* Caixa que segura o menu: centraliza ele horizontalmente no topo */
+/* =========================================================
+   MENU (Home / Sobre / Contato)
+   ========================================================= */
+
+/* Caixa do cabeçalho: segura o menu e o centraliza no topo da tela */
 .cabecalho-topo {
-    display: flex;                /* Ativa o Flexbox */
-    justify-content: center;      /* Joga o conteúdo para o centro exato da tela */
-    padding: 22px 0;              /* Dá um espaço do topo da pagina cima e embaixo do menu */
+    display: flex;                            /* ativa o Flexbox para poder alinhar o conteúdo */
+    justify-content: center;                  /* centraliza o menu na horizontal */
+    padding: 22px 0;                          /* espaço interno: 22px acima e abaixo do menu, 0 nos lados */
 }
 
-/* Configuração da lista (ul) do menu */
+/* Lista (ul) do menu: transforma a lista vertical em uma linha horizontal */
 .menu-navegacao ul {
-    list-style: none;             /* Tira as bolinhas pretas da lista */
-    display: flex;                /* Coloca os itens (li) um ao lado do outro */
-    gap: 45px;                    /* Cria o espaço de distância entre as palavras do menu */
-    padding: 0;
-    margin: 0;
+    list-style: none;                         /* tira as bolinhas da lista */
+    display: flex;                            /* coloca os itens (li) lado a lado */
+    gap: 45px;                                /* distância entre Home, Sobre e Contato */
+    padding: 0;                               /* tira o recuo padrão da lista */
+    margin: 0;                                /* tira a margem padrão da lista */
 }
 
-/* Estiliza os links (a) do menu */
+/* Links (a) do menu: aparência das palavras */
 .menu-navegacao ul li a {
-    font-family: 'NeuropolX', sans-serif; /* Usa a sua fonte Neuropol no menu */
-    font-weight: bold;            /* Deixa a letra mais encorpada */
-    font-size: 18px;              /* Tamanho da letra do menu */
-    color: #111827;               /* Cor escura para o texto */
-    /*text-decoration: none;        se quise Tira o sublinhado padrão dos links */
+    font-family: 'NeuropolX', sans-serif;     /* fonte Neuropol X; se falhar, usa sans-serif comum */
+    font-weight: bold;                        /* negrito */
+    font-size: 18px;                          /* tamanho da letra */
+    color: #111827;                           /* cor do texto (preto suave) */
+    /*text-decoration: none;*/                /* DESATIVADA: se tirar os símbolos de comentário, o sublinhado dos links some */
 }
 
-/* Efeito quando o mouse passa por cima do menu */
+/* Efeito do menu ao passar o mouse por cima */
 .menu-navegacao ul li a:hover {
-    color: #566c8a;               /* Muda levemente para cinza ao passar o mouse */
+    color: #566c8a;                           /* muda para um azul acinzentado quando o mouse está em cima */
 }
 
-/* Caixa que envolve todo o conteúdo do site */
+
+/* =========================================================
+   CAIXA PRINCIPAL (envolve todo o conteúdo do site)
+   ========================================================= */
+
+/* A tag <main> é a "coluna" central onde ficam todas as seções */
 main {
-    max-width: 1330px;    /* mesma largura máxima que você já usa na apresentação */
-    margin: 0 auto;       /* centraliza a caixa na tela */
-    padding: 0 20px;      /* espaço nos lados */
+    max-width: 1330px;                        /* largura máxima da coluna; em telas maiores ela para de crescer */
+    margin: 0 auto;                           /* 0 em cima/embaixo; "auto" nos lados centraliza a coluna na tela */
+    padding: 0 20px;                          /* 0 em cima/embaixo; 20px nos lados para o conteúdo não colar na borda */
 }
 
 
-/* --- LAYOUT PRINCIPAL (FOTO + TEXTO LADO A LADO) --- */
+/* =========================================================
+   SEÇÃO HOME (foto à esquerda + texto à direita)
+   ========================================================= */
 
 /* Caixa que organiza a foto e o texto lado a lado */
 .secao-apresentacao {
-    display: flex;                /* Ativa o Flexbox para criar duas colunas */
-    justify-content: center;      /* Centraliza o bloco inteiro na tela */
-    align-items: flex-start;      /* Alinha o topo da foto e do texto para nivelarem juntos */
-    gap: 90px;                    /* Espaço exato entre a foto e o texto ao lado */
-    padding: 140px 20px;           /* Espaçamento interno */
-    max-width: 1100px;            /* Largura máxima limite */
-    margin: 0 auto;               /* Centraliza a seção no meio da página */
+    display: flex;                            /* ativa o Flexbox: cria as duas colunas lado a lado */
+    justify-content: center;                  /* centraliza o conjunto (foto + texto) na horizontal */
+    align-items: flex-start;                  /* alinha os dois pelo TOPO (em vez do meio) */
+    gap: 90px;                                /* distância entre a foto e o texto */
+    padding: 140px 20px;                      /* 140px em cima e embaixo (empurra tudo para baixo); 20px nos lados */
+    max-width: 1100px;                        /* largura máxima desta seção */
+    margin: 0 auto;                           /* centraliza a seção dentro da main */
 }
 
-/* --- COLUNA DA ESQUERDA (FOTO E SEU NOME) --- */
 
+/* ---------- Coluna da esquerda: foto, saudação, nome e subtítulo ---------- */
+
+/* Empilha foto, saudação, nome e subtítulo em uma coluna */
 .coluna-perfil {
-    display: flex;
-    flex-direction: column;       /* Empilha os itens verticalmente */
-    align-items: center;          /* Centraliza todos os itens no meio da coluna */
-    text-align: center;           /* Alinha o texto ao centro */
+    display: flex;                            /* ativa o Flexbox */
+    flex-direction: column;                   /* coloca os itens um embaixo do outro (em vez de lado a lado) */
+    align-items: center;                      /* centraliza cada item na horizontal dentro da coluna */
+    text-align: center;                       /* centraliza o texto dentro de cada item */
 }
 
-/* Estiliza o tamanho e as bordas da sua foto */
+/* Foto de perfil */
 .imagem-perfil {
-    width: 280px;                 /* Largura fixa da foto */
-    height: 350px;                /* Altura fixa da foto */
-    object-fit: cover;            /* Evita que a foto fique distorcida ou esticada */
-    border-radius: 24px;          /* Deixa as bordas arredondadas igual à inspiração */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Sombra suave embaixo da foto */
+    width: 280px;                             /* largura da foto */
+    height: 350px;                            /* altura da foto */
+    object-fit: cover;                        /* a foto preenche a caixa sem ficar esticada (corta o que sobrar) */
+    border-radius: 24px;                      /* arredonda os cantos */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* sombra: 0 de lado, 10px para baixo, 25px de desfoque, preto bem fraquinho */
 }
 
-/* Texto pequeno de saudação ("Oi! Eu sou o") */
+/* Frase pequena abaixo da foto ("Oi! Eu sou o") */
 .texto-saudacao {
-    margin-top: 15px;             /* Espaço entre a foto e essa frase */
-    font-size: 13px;              /* Tamanho pequeno da letra */
-    color: #6b7280;               /* Cor cinza suave */
+    margin-top: 15px;                         /* espaço entre a foto e esta frase */
+    font-size: 13px;                          /* tamanho pequeno da letra */
+    color: #6b7280;                           /* cinza suave */
 }
 
-/* O seu nome em destaque - Ajustado para usar fonte limpa e espaçamento idêntico */
+/* Seu nome em destaque (o <h1>) */
 .nome-perfil {
-    font-size: 28px;              /* Tamanho proporcional ao original */
-    margin: 7px 0;                /* Margem em cima e embaixo */
-    font-family: 'Neuropol X', monospace;     /* Usa a mesma fonte limpa da referência */
-    font-weight: bold;            /* Deixa o traço firme */
-    letter-spacing: 0.05em;        /* Espaçamento sutil entre as letras igual ao modelo */
-    color: #111827;               /* Cor escura */
+    font-size: 28px;                          /* tamanho da letra do nome */
+    margin: 7px 0;                            /* espaço de FORA: 7px acima e abaixo, 0 nos lados */
+    font-family: 'Neuropol X', monospace;     /* fonte do nome; se não achar, usa a monospace comum */
+    font-weight: bold;                        /* negrito */
+    letter-spacing: 0.05em;                   /* espaço extra entre as letras (0.05em = 5% do tamanho da letra) */
+    color: #111827;                           /* preto suave */
 }
 
-/* Subtítulo abaixo do nome ("dev há 3 semanas") */
+/* Subtítulo abaixo do nome ("Desenvolvedor 💻") */
 .subtitulo-perfil {
-    font-size: 13px;              /* Tamanho pequeno */
-    color: #6b7280;               /* Cor cinza suave */
-    margin: 0;
+    font-size: 13px;                          /* tamanho pequeno da letra */
+    color: #6b7280;                           /* cinza suave */
+    margin: 0;                                /* tira a margem padrão do parágrafo para ficar colado no nome */
 }
 
-/* --- COLUNA DA DIREITA (TEXTOS DE RESUMO) --- */
 
+/* ---------- Coluna da direita: textos de apresentação ---------- */
+
+/* Bloco com todos os parágrafos ao lado da foto */
 .coluna-texto {
-    max-width: 480px;
-    font-size: 16px;              /* era 14px; */
-    letter-spacing: 0.025em;      /* espaço entre letras, igual ao tracking-wide */
-    line-height: 1.5;
-    padding-top: 10px;    /* o texto começa um pouco abaixo do topo da foto*/
+    max-width: 480px;                         /* largura máxima do bloco (evita linhas muito compridas) */
+    font-size: 16px;                          /* tamanho da letra dos parágrafos (era 14px) */
+    letter-spacing: 0.025em;                  /* espaço entre as letras, igual ao tracking-wide do Yudi */
+    line-height: 1.5;                         /* altura da linha: 1.5x o tamanho da letra (espaço entre as linhas) */
+    padding-top: 10px;                        /* espaço interno em cima: o texto começa um pouco abaixo do topo da foto */
 }
 
-/* Espaçamento abaixo de cada parágrafo de texto */
+/* Parágrafos de apresentação (o do Instagram tem estilo próprio abaixo) */
 .paragrafo-destaque, .paragrafo-comum {
-    margin-bottom: 24px;          /* Distância de respiro entre os parágrafos */
-    color: #374151;               /* Cor cinza escura */
+    margin-bottom: 24px;                      /* espaço entre um parágrafo e o seguinte */
+    color: #374151;                           /* cinza escuro, confortável para ler */
 }
 
-/* Estilo do link do Instagram */
+/* Links de redes sociais (Instagram) */
 .links-sociais a {
-    color: #111827;               /* Cor escura para combinar com o texto */
-    text-decoration: underline;   /* Mantém o sublinhado clássico de link */
-    font-weight: bold;            /* Deixa a palavra em negrito */
+    color: #111827;                           /* preto suave, combinando com o texto */
+    text-decoration: underline;               /* mantém o sublinhado para parecer link */
+    font-weight: bold;                        /* negrito */
 }
 
-/* --- SEÇÕES FUTURAS --- */
 
+/* =========================================================
+   SEÇÕES SOBRE E CONTATO (temporárias, para testar o menu)
+   ========================================================= */
+
+/* Caixa de cada seção abaixo da Home */
 .secao-futura {
-    max-width: 1330px;
-    margin: 120px auto;
-    text-align: left;
-    padding: 40px 0;      /* sem espaço nos lados: o texto começa na borda esquerda da main */
-    border-top: 1px solid #e5e7eb;
+    max-width: 1330px;                        /* largura máxima da seção (igual à da main) */
+    margin: 120px auto;                       /* 120px de espaço acima e abaixo; "auto" nos lados centraliza */
+    text-align: left;                         /* textos começam pela esquerda */
+    padding: 40px 0;                          /* 40px em cima e embaixo; 0 nos lados, para o texto colar na borda esquerda da main */
+    border-top: 1px solid #e5e7eb;            /* linha cinza fina no topo, separando as seções */
 }
 
-/* Títulos das seções Sobre e Contato */
+/* Títulos "Sobre" e "Contato" (os <h2> dentro da seção) */
 .secao-futura h2 {
-    font-family: 'NeuropolX', sans-serif; /* mesma fonte do menu */
-    text-align: center;
+    font-family: 'NeuropolX', sans-serif;     /* mesma fonte do menu */
+    text-align: center;                       /* só o título fica no centro; o resto da seção fica à esquerda */
 }
