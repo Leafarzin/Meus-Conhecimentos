@@ -76,6 +76,7 @@ main {
 
 /* Caixa que organiza a foto e o texto lado a lado */
 .secao-apresentacao {
+  min-height: 65vh;   /* a apresentação ocupa a tela inteira; o Sobre só aparece ao rolar */
   display: flex; /* ativa o Flexbox: cria as duas colunas lado a lado */
   justify-content: center; /* centraliza o conjunto (foto + texto) na horizontal */
   align-items: flex-start; /* alinha os dois pelo TOPO (em vez do meio) */
@@ -179,4 +180,28 @@ main {
 .secao-futura h2 {
   font-family: "NeuropolX", sans-serif; /* mesma fonte do menu */
   text-align: center; /* só o título fica no centro; o resto da seção fica à esquerda */
+}
+
+
+/* --- SETA DE ROLAGEM --- */
+
+/* Define a animação de sobe e desce da seta */
+@keyframes balancar {
+    0%   { transform: translateY(0) rotate(45deg); }    /* começo: posição normal */
+    50%  { transform: translateY(8px) rotate(45deg); }  /* metade: desce 8px */
+    100% { transform: translateY(0) rotate(45deg); }    /* fim: volta para cima */
+}
+
+/* Seta fixa no rodapé da tela, desenhada com bordas */
+.seta-rolagem {
+    position: fixed;                  /* fica parada na tela, mesmo se a página rolar */
+    bottom: 30px;                     /* 30px acima da borda de baixo da tela */
+    left: 50%;                        /* começa no meio da tela */
+    margin-left: -7px;                /* volta metade da largura, para centralizar (usei margin porque o transform já está ocupado com o giro) */
+    width: 8px;                      /* tamanho menor que a seta anterior */
+    height: 8px;
+    border-right: 2px solid #111827;  /* lado direito do "V" */
+    border-bottom: 2px solid #111827; /* lado de baixo do "V" */
+    transform: rotate(45deg);         /* gira 45° para formar a ponta para baixo */
+    animation: balancar 1.5s infinite;   /* sobe e desce para sempre, a cada 1.5 segundos */  
 }
